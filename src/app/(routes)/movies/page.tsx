@@ -250,7 +250,7 @@ export default function Movies() {
       <ModalSignIn
         isOpen={isLikeModalOpen}
         onClose={onLikeModalClose}
-        title="Like movie"
+        title="Like Movie"
         message="Sign in to like movies."
       />
     </>
