@@ -122,7 +122,7 @@ export default function People() {
                 setSearchTerm('');
                 updateQueryParams({ s: '', v: viewMode });
               }}
-              className="px-3.5 py-1.5 cursor-pointer rounded-full bg-gray-200 flex gap-1 items-center text-sm h-[38px]"
+              className="px-3.5 py-1.5 cursor-pointer rounded-full bg-gray-200 flex gap-1 items-center text-sm h-[38px] mx-auto xl:mx-0 mb-3 xl:mb-0"
             >
               <CloseIcon /> Clear search
             </button>

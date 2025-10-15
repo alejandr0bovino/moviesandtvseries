@@ -168,7 +168,7 @@ export function ScreenLegends() {
             </Link>
           </motion.div>
 
-          <div className="flex gap-4 md:pt-0">
+          <div className="flex justify-center md:justify-start gap-4 md:pt-0">
             <ButtonArrow direction="left" onClick={handlePrev} />
             <ButtonArrow direction="right" onClick={handleNext} />
           </div>
