@@ -1,0 +1,32 @@
+:root {
+  --plyr-color-main: white;
+  --plyr-video-control-background-hover: white;
+  --plyr-video-control-color-hover: black
+}
+
+.plyr__control.plyr__control--overlaid {
+  color: white !important;
+  background-color: black !important;
+}
+
+.plyr__control.plyr__control--overlaid:hover {
+  color: black !important;
+  background-color: white !important;
+
+}
+
+.plyr__menu__container .plyr__control[role="menuitemradio"]:before {
+  background: black !important;
+}
+
+.cm-vplayer {
+  overflow: hidden;
+}
+
+
+@media (min-width: 640px) {
+  .cm-vplayer {
+    width: 622px;
+    height: 350px;
+  }
+}
