@@ -11,7 +11,8 @@
   "dependencies": {
     "@clerk/nextjs": "^6.31.1",
     "@emailjs/browser": "^4.4.1",
-    "@heroui/react": "2.8.0-beta.5",
+    "@heroui/react": "^2.8.5",
+    "@heroui/toast": "^2.0.17",
     "@prisma/client": "^6.14.0",
     "@tabler/icons-react": "^3.33.0",
     "@vidstack/react": "^1.12.13",
