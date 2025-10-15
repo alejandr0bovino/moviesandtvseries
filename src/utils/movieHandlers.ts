@@ -111,6 +111,10 @@ export function useMovieHandlers({
     if (!selected) return; // Do nothing if 'Sort by' is selected
     // Only update if the sort actually changed
     if (selected !== sort) {
+      // Set loading immediately to prevent UI glitch
+      if (setLoading) {
+        setLoading(true);
+      }
       setSort(selected);
       if (currentPage !== 1) setCurrentPage(1);
       updateQueryParams({ sort: selected, p: '1' });
