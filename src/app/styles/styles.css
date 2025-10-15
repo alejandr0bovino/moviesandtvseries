@@ -208,10 +208,11 @@ ________________________________________________________________________________
   border-style: solid;
 }
 
+/* 
 .cm-select [data-slot="mainWrapper"] [data-slot="trigger"] svg {
   transition: none !important;
   transform: rotate(0deg) !important;
-}
+} */
 
 
 .cm-select [data-slot="mainWrapper"] [data-slot="trigger"] {
