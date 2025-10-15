@@ -1,5 +1,7 @@
 html {
   background: linear-gradient(to bottom, #000000 100%, #ffffff 0%);
+  /* prevents browser scaling overrides */
+  font-size: 16px;
 }
 
 html:has(.cl-modalBackdrop) {
