@@ -62,9 +62,9 @@ section[role="dialog"] [aria-label="Close"] {
 }
 
 
-.cm-input input {
+/* .cm-input input {
   outline: none;
-}
+} */
 
 .cm-input [data-slot="input-wrapper"] {
   height: 52px !important;
@@ -167,8 +167,19 @@ section[role="dialog"] [aria-label="Close"] {
   border-color: black;
 }
 
+
+/* .cm-autocomplete input {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline-color: transparent !important;
+} */
+
 .cm-autocomplete input:focus-visible {
-  outline: none;
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline-color: transparent !important;
 }
 
 
