@@ -236,13 +236,21 @@ ________________________________________________________________________________
 ____________________________________________________________________________________________________________________
 */
 
-[data-slot="popover"] [role="option"][data-hover="true"],
+
 [data-slot="popover"] [role="option"][data-focus="true"] {
+  background-color: #d4d4d8 !important;
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+[data-slot="popover"] [role="option"][data-hover="true"] {
   background-color: #e4e4e7 !important;
   outline: none !important;
   border: none !important;
   box-shadow: none !important;
 }
+
 
 [data-slot="popover"] [role="option"][data-focus-visible="true"] {
   outline: none !important;
@@ -251,7 +259,7 @@ ________________________________________________________________________________
 }
 
 [data-slot="popover"] [role="option"][data-open="true"] {
-  background-color: #e4e4e7 !important;
+  background-color: blue !important;
 }
 
 
