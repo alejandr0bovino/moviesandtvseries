@@ -208,11 +208,6 @@ ________________________________________________________________________________
   border-style: solid;
 }
 
-/* 
-.cm-select [data-slot="mainWrapper"] [data-slot="trigger"] svg {
-  transition: none !important;
-  transform: rotate(0deg) !important;
-} */
 
 
 .cm-select [data-slot="mainWrapper"] [data-slot="trigger"] {
@@ -244,11 +239,21 @@ ________________________________________________________________________________
 [data-slot="popover"] [role="option"][data-hover="true"],
 [data-slot="popover"] [role="option"][data-focus="true"] {
   background-color: #e4e4e7 !important;
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+[data-slot="popover"] [role="option"][data-focus-visible="true"] {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 [data-slot="popover"] [role="option"][data-open="true"] {
   background-color: #e4e4e7 !important;
 }
+
 
 
 /*
