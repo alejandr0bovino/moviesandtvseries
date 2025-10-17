@@ -293,6 +293,12 @@ If this were a commercial product, it would need:
 
 ---
 
+## To-do
+
+- User reviews
+- User rating
+- User lists
+
 ## Conclusion
 
 This is a **highly accomplished web application** that successfully combines technical sophistication with user-focused design. The developer has created something that genuinely rivals commercial entertainment platforms in many aspects.
