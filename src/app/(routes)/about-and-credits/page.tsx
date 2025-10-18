@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import MovieIcon from "@/icons/movie";
 import { PowerGlitch } from 'powerglitch';
 
-export default function About() {
+export default function AboutAndCredits() {
   useEffect(() => {
     PowerGlitch.glitch('#cm-logo-223',
       {
@@ -33,7 +33,7 @@ export default function About() {
 
   return (
     <>
-      <hr className="mt-3 mb-7 hr-text" data-content="ABOUT" />
+      <hr className="mt-3 mb-7 hr-text" data-content="ABOUT & CREDITS" />
 
       <div className="w-full max-w-screen-xl mx-auto mb-20 flex">
 
@@ -66,7 +66,7 @@ export default function About() {
 
           <h2 className="text-2xl font-semibold mb-2">Tech stack</h2>
 
-          <ul className="text-xl leading-9">
+          <ul className="text-xl leading-9 mb-9">
             <li>**Framework**: Next.js 15.5.2 with React 19</li>
             <li>**Database**: PostgreSQL with Prisma ORM</li>
             <li>**Authentication**: Clerk</li>
@@ -75,6 +75,19 @@ export default function About() {
             <li>**Frontend Cloud**: Vercel</li>
           </ul>
 
+          <h2 className="text-2xl font-semibold mb-2">Credits & Disclaimer</h2>
+
+          <p className='text-xl leading-9 mb-4'>
+            This product uses the TMDB API but is not endorsed or certified by TMDB.
+          </p>
+
+          <p className='text-xl leading-9 mb-4'> This website is a personal, non-commercial project created to showcase web development work. All movie and TV show data is provided by TMDB
+            via their API. Trailers are embedded from YouTube
+          </p>
+
+          <p className='text-xl leading-9'> No movies or TV series are hosted or streamed on this site. TMDB logos and attributions are included in accordance with TMDB's guidelines .
+            . No movies or TV series are hosted or streamed on this site. TMDB logos and attributions are included in accordance with TMDB's guidelines .
+          </p>
         </div>
       </div>
     </>

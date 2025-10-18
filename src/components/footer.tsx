@@ -50,7 +50,8 @@ const Footer = ({
               width={129} height={16}
               style={{ width: "129px", height: "16px" }}
               priority
-              className="saturate-[.40]"
+              // className="saturate-[.40]"
+              className="saturate-[.65]"
             />
           </Link>
 

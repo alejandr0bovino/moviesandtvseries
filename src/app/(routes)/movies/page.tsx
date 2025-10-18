@@ -181,7 +181,7 @@ export default function Movies() {
 
         {!loading && movies.length === 0 && !error && hasInitialLoad && (
           <div className="flex items-center justify-center w-70 m-auto h-64">
-            <Alert description="Please try a different search." title="No results found." variant="bordered" />
+            <Alert description="Please try a different search." title="No results found" variant="bordered" />
           </div>
         )}
         {loading ? (

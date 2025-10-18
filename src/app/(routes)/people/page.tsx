@@ -182,7 +182,7 @@ export default function People() {
         {error && <p>Error: {error}</p>}
         {!loading && people.length === 0 && (
           <div className="flex items-center justify-center w-70 m-auto h-64">
-            <Alert description="Please try a different search." title="No results found." variant="bordered" />
+            <Alert description="Please try a different search." title="No results found" variant="bordered" />
           </div>
         )}
         {loading ? (

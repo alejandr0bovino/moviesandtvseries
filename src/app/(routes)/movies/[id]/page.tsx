@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
-import { Spinner } from "@heroui/react";
+import { Spinner, Alert } from "@heroui/react";
 
 import '@vidstack/react/player/styles/base.css';
 import '@vidstack/react/player/styles/plyr/theme.css';
@@ -62,7 +62,7 @@ export default function MoviePage() {
     const fetchMovie = async () => {
       try {
         const res = await fetch(`/api/movies/${id}`);
-        if (!res.ok) throw new Error('Failed to fetch movie');
+        if (!res.ok) throw new Error('Failed to fetch movie.');
         const data = await res.json();
         setMovie(data);
       } catch (err) {
@@ -85,7 +85,10 @@ export default function MoviePage() {
   if (error) return (
     <>
       <hr className="mt-3 mb-6 hr-text" data-content="MOVIE INFO" />
-      <p>{error}</p>
+      {/* <p>{error}</p> */}
+      <div className="flex items-center justify-center w-70 m-auto h-64">
+        <Alert description={`${error}`} title="Error" color="secondary" variant="faded" />
+      </div>
     </>
   );
 

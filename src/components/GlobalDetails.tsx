@@ -39,7 +39,8 @@ export function GlobalDetails({ media, mediaType }: GlobalDetailsProps) {
               height={14}
               style={{ width: "112px", height: "14px" }}
               priority
-              className="saturate-[.40]"
+              // className="saturate-[.40]"
+              className="saturate-[.65]"
             />
           </Link>
 
