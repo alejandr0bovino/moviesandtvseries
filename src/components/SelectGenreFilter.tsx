@@ -68,14 +68,15 @@ export function SelectGenreFilter({
         label: selectedOption?.label || selected,
         value: Number(selected) || 0,
       });
+
+
+      console.log("selected >>>>>>>>>>>>>>>", selected);
     }
 
 
 
 
     onGenreChange(selected);
-
-    console.log("selected >>>>>>>>>>>>>>>", selected);
 
     // Blur the autocomplete when an option is selected or cleared
     setTimeout(() => {
