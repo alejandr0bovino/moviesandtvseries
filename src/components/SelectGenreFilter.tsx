@@ -1,5 +1,9 @@
 import { Autocomplete, AutocompleteItem } from "@heroui/react";
 
+
+import { useAnalytics } from '../hooks/useAnalytics';
+
+
 interface GenreOption {
   key: string;
   label: string;
@@ -12,18 +16,66 @@ interface SelectGenreFilterProps {
   className?: string;
 }
 
+
+
+interface GenreOption {
+  key: string;
+  label: string;
+}
+
+interface Props {
+  genreOptions: GenreOption[];
+  onGenreChange: (genre: string) => void;
+}
+
+
+
+
+
+
+
+
+
+
 export function SelectGenreFilter({
   selectedGenre,
   onGenreChange,
   genreOptions,
   className,
 }: SelectGenreFilterProps) {
+
+  const { trackEvent } = useAnalytics();
+
+
+
+
+
+
   const handleSelectionChange = (val: any) => {
     const selected = val?.toString() || "";
 
     // Always call onGenreChange, even if it's the same value
     // This ensures the parent component can handle the state properly
+
+
+
+    if (selected) {
+      const selectedOption = genreOptions.find(option => option.key === selected);
+
+      trackEvent({
+        action: 'genre_selected',
+        category: 'filter_interaction',
+        label: selectedOption?.label || selected,
+        value: Number(selected) || 0,
+      });
+    }
+
+
+
+
     onGenreChange(selected);
+
+    console.log("selected >>>>>>>>>>>>>>>", selected);
 
     // Blur the autocomplete when an option is selected or cleared
     setTimeout(() => {
@@ -33,6 +85,16 @@ export function SelectGenreFilter({
       }
     }, 0);
   };
+
+
+
+
+
+
+
+
+
+
 
   return (
     <Autocomplete
