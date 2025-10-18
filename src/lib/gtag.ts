@@ -1,4 +1,16 @@
 // lib/gtag.ts
+
+// Extend Window interface to include gtag
+declare global {
+  interface Window {
+    gtag?: (
+      command: 'config' | 'event',
+      targetId: string,
+      config?: Record<string, any>
+    ) => void;
+  }
+}
+
 export const GA_TRACKING_ID = 'G-C2P2EH1374'; // Replace with your GA4 ID
 
 // Pageview tracking
