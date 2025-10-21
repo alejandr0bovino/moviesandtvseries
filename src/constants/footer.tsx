@@ -5,7 +5,7 @@ export const defaultNavigationLinks = [
   { href: "/movies", label: "Movies" },
   { href: "/tv-series", label: "TV Series" },
   { href: "/people", label: "People" },
-  { href: "/about-and-credits", label: "About & Credits" },
+  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 

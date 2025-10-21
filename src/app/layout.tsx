@@ -5,12 +5,6 @@ import Footer from "@/components/footer";
 import RedirectHandler from "@/components/RedirectHandler";
 import ClerkProviderWrapper from "@/components/ClerkProviderWrapper";
 
-
-import Script from 'next/script';
-
-
-
-
 import "./globals.css";
 import "./styles/styles.css";
 import "./styles/vplayer.css";
@@ -33,27 +27,6 @@ export default function RootLayout({
   return (
     <ClerkProviderWrapper>
       <html lang="en" className="light">
-
-        <head>
-          <Script
-            strategy="afterInteractive"
-            src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
-          />
-          <Script
-            id="gtag-init"
-            strategy="afterInteractive"
-            dangerouslySetInnerHTML={{
-              __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-XXXXXXXXXX', { page_path: window.location.pathname });
-            `,
-            }}
-          />
-        </head>
-
-
         <body
           className={`${geistSans.variable} antialiased font-[family-name:var(--font-geist-sans),sans-serif]`}
         >

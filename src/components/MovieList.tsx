@@ -92,7 +92,7 @@ export default function MovieList({ fetchUrl }: MovieListProps) {
             key={movie.id}
             className="min-w-[40vw] md:min-w-[282px] flex-shrink-0"
           >
-            <Link href={`/movies/${movie.id}`} prefetch={true}>
+            <Link href={`/movies/${movie.id}`} prefetch={true} className='rounded-2xl cm-movie-list-image-link'>
               <Image
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
@@ -102,6 +102,7 @@ export default function MovieList({ fetchUrl }: MovieListProps) {
                 style={{ width: "282px", height: "423px" }}
                 priority={true}
               />
+              <div className="rounded-2xl cm-movie-list-image-shadow"></div>
             </Link>
           </div>
         ))}

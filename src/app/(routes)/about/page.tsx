@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import MovieIcon from "@/icons/movie";
 import { PowerGlitch } from 'powerglitch';
 
-export default function AboutAndCredits() {
+export default function About() {
   useEffect(() => {
     PowerGlitch.glitch('#cm-logo-223',
       {
@@ -33,7 +33,7 @@ export default function AboutAndCredits() {
 
   return (
     <>
-      <hr className="mt-3 mb-7 hr-text" data-content="ABOUT & CREDITS" />
+      <hr className="mt-3 mb-7 hr-text" data-content="ABOUT" />
 
       <div className="w-full max-w-screen-xl mx-auto mb-20 flex">
 
