@@ -37,7 +37,7 @@ export function SelectYearFilter({ selectedYear, onYearChange, className }: Sele
   return (
     <>
       <Autocomplete
-        // key={`year-${selectedYear}`}
+        key={`year-${selectedYear}`}
         aria-label="Select Year Filter"
         selectedKey={selectedYear}
         classNames={{
