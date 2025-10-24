@@ -169,6 +169,9 @@ section[role="dialog"] [aria-label="Close"] {
   border-color: black;
 }
 
+.cm-autocomplete [data-selected="true"] {
+  background-color: red !important;
+}
 
 /* .cm-autocomplete input {
   outline: none !important;
@@ -184,6 +187,10 @@ section[role="dialog"] [aria-label="Close"] {
   outline-color: transparent !important;
 }
 
+
+[data-slot="list"] [data-selected="true"] {
+  background-color: #E5E7EB !important;
+}
 
 
 /*
@@ -257,10 +264,6 @@ ________________________________________________________________________________
   outline: none !important;
   border: none !important;
   box-shadow: none !important;
-}
-
-[data-slot="popover"] [role="option"][data-open="true"] {
-  background-color: blue !important;
 }
 
 [data-slot="popover"] [role="option"][data-selected="true"] {

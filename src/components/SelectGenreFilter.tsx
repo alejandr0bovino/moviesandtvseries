@@ -36,6 +36,7 @@ export function SelectGenreFilter({
 
   return (
     <Autocomplete
+      // key={`genre-${selectedGenre}`}
       aria-label="Genre"
       selectedKey={selectedGenre}
       classNames={{
@@ -59,17 +60,14 @@ export function SelectGenreFilter({
       variant="bordered"
       allowsCustomValue={false}
     >
-      {(item) => {
-        const isSelected = selectedGenre === item.key;
-        return (
-          <AutocompleteItem
-            key={item.key}
-            className={`flex hover:!bg-gray-200 items-center justify-between${isSelected ? ' !bg-gray-200 ' : ''}`}
-          >
-            {item.label}
-          </AutocompleteItem>
-        );
-      }}
+      {(item) => (
+        <AutocompleteItem
+          key={item.key}
+          className="flex hover:!bg-gray-200 items-center justify-between"
+        >
+          {item.label}
+        </AutocompleteItem>
+      )}
     </Autocomplete>
   );
 }
