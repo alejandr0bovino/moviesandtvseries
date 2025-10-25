@@ -67,7 +67,6 @@ export default function TvSeriePage() {
         if (!res.ok) throw new Error('Failed to fetch tvSerie');
         const data = await res.json();
         setTvSerie(data);
-        console.log(">>>>>>>>>>>>>>>>>>", data);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An unknown error occurred');
       }
