@@ -364,8 +364,9 @@ export default function PersonPage() {
                           className="rounded-xl saturate-65"
                         />
                       ) : (
-                        <div className="w-[200px] h-[300px] bg-gray-200 rounded-lg flex items-center justify-center">
-                          <span className="text-gray-500 text-sm">No Image</span>
+                        <div className="w-[160px] h-[240px] bg-gray-200 rounded-lg flex flex-col items-center justify-center text-gray-500 text-sm font-medium text-center">
+                          <IconPhotoOff className='mb-2' />
+                          Image not <br /> available
                         </div>
                       )}
 
@@ -425,8 +426,9 @@ export default function PersonPage() {
                         className="rounded-xl saturate-65"
                       />
                     ) : (
-                      <div className="w-[200px] h-[300px] bg-gray-200 rounded-lg flex items-center justify-center">
-                        <span className="text-gray-500 text-sm">No Image</span>
+                      <div className="w-[160px] h-[240px] bg-gray-200 rounded-lg flex flex-col items-center justify-center text-gray-500 text-sm font-medium text-center">
+                        <IconPhotoOff className='mb-2' />
+                        Image not <br /> available
                       </div>
                     )}
 
@@ -481,8 +483,9 @@ export default function PersonPage() {
                         className="rounded-xl saturate-65"
                       />
                     ) : (
-                      <div className="w-[200px] h-[300px] bg-gray-200 rounded-lg flex items-center justify-center">
-                        <span className="text-gray-500 text-sm">No Image</span>
+                      <div className="w-[160px] h-[240px] bg-gray-200 rounded-lg flex flex-col items-center justify-center text-gray-500 text-sm font-medium text-center">
+                        <IconPhotoOff className='mb-2' />
+                        Image not <br /> available
                       </div>
                     )}
 
