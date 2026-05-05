@@ -13,7 +13,9 @@ export default clerkMiddleware(async (auth, req) => {
 
 export const config = {
     matcher: [
-        '/((?!_next|[^?]*\\.(?:css|js|png|jpg|jpeg|svg|ico)).*)',
-        '/(api|trpc)(.*)',
+        '/dashboard(.*)',
+        '/settings(.*)',
+        '/profile(.*)',
+        '/admin(.*)',
     ],
 }
