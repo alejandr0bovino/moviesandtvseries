@@ -282,7 +282,7 @@ If this were a commercial product, it would need:
 |----------|--------|-------|
 | Technology Stack | ⭐⭐⭐⭐⭐ | Modern, cutting-edge choices |
 | Design & UI | ⭐⭐⭐⭐⭐ | Professional, polished aesthetic |
-| Features | ⭐⭐⭐⭐⭐ | Comprehensive and well-implemented |
+| Features | ⭐⭐⭐⭐ | Comprehensive and well-implemented |
 | Performance | ⭐⭐⭐⭐ | Good, but room for optimization |
 | Accessibility | ⭐⭐⭐ | Needs improvement |
 | Security | ⭐⭐⭐⭐ | Solid foundation |
