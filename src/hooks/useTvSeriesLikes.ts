@@ -31,17 +31,17 @@ export function useTvSeriesLikes() {
   // Function to fetch likes count for TV series - memoized to prevent infinite loops
   const fetchLikesCount = useCallback(async (seriesIds: number[]) => {
     try {
-      const counts: Record<number, number> = {};
-      await Promise.all(
-        seriesIds.map(async (seriesId) => {
-          const response = await fetch(`/api/likes/tv-series/count?tvSeriesId=${seriesId}`);
-          if (response.ok) {
-            const data = await response.json();
-            counts[seriesId] = data.count;
-          }
-        })
-      );
-      setSeriesLikesCount(prev => ({ ...prev, ...counts }));
+      if (seriesIds.length === 0) return;
+
+      const uniqueIds = Array.from(new Set(seriesIds));
+      const response = await fetch(`/api/likes/tv-series/count?tvSeriesIds=${uniqueIds.join(',')}`);
+      if (!response.ok) return;
+
+      const data = await response.json();
+      const counts = data.counts as Record<number, number> | undefined;
+      if (counts) {
+        setSeriesLikesCount(prev => ({ ...prev, ...counts }));
+      }
     } catch (error) {
       console.error('Error fetching TV series likes count:', error);
     }

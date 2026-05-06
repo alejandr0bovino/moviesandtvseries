@@ -30,17 +30,17 @@ export function useLikes() {
   // Function to fetch likes count for movies - memoized to prevent infinite loops
   const fetchLikesCount = useCallback(async (movieIds: number[]) => {
     try {
-      const counts: Record<number, number> = {};
-      await Promise.all(
-        movieIds.map(async (movieId) => {
-          const response = await fetch(`/api/likes/movies/count?movieId=${movieId}`);
-          if (response.ok) {
-            const data = await response.json();
-            counts[movieId] = data.count;
-          }
-        })
-      );
-      setMovieLikesCount(prev => ({ ...prev, ...counts }));
+      if (movieIds.length === 0) return;
+
+      const uniqueIds = Array.from(new Set(movieIds));
+      const response = await fetch(`/api/likes/movies/count?movieIds=${uniqueIds.join(',')}`);
+      if (!response.ok) return;
+
+      const data = await response.json();
+      const counts = data.counts as Record<number, number> | undefined;
+      if (counts) {
+        setMovieLikesCount(prev => ({ ...prev, ...counts }));
+      }
     } catch (error) {
       console.error('Error fetching likes count:', error);
     }

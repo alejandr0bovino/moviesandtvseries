@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { MovieApiResponse, MovieQueryParams, Genre, Movie } from '@/types/api';
 import { handleApiError, AppError, validateEnvironment } from '@/lib/errors';
 
+const TMDB_REVALIDATE_SECONDS = 60 * 30;
+
 export async function GET(request: NextRequest) {
   try {
     validateEnvironment();
@@ -36,11 +38,13 @@ export async function GET(request: NextRequest) {
         headers: {
           Authorization: `Bearer ${TMDB_ACCESS_TOKEN}`,
         },
+        next: { revalidate: TMDB_REVALIDATE_SECONDS },
       }),
       fetch('https://api.themoviedb.org/3/genre/movie/list?language=en-US', {
         headers: {
           Authorization: `Bearer ${TMDB_ACCESS_TOKEN}`,
         },
+        next: { revalidate: TMDB_REVALIDATE_SECONDS },
       }),
     ]);
 
@@ -82,15 +86,22 @@ export async function GET(request: NextRequest) {
       }
     }
 
-    return NextResponse.json({
-      movies: {
-        results: processedMovies,
-        page: moviesData.page,
-        total_pages: actualTotalPages,
-        total_results: actualTotalResults
+    return NextResponse.json(
+      {
+        movies: {
+          results: processedMovies,
+          page: moviesData.page,
+          total_pages: actualTotalPages,
+          total_results: actualTotalResults
+        },
+        genres: genresData.genres
       },
-      genres: genresData.genres
-    });
+      {
+        headers: {
+          'Cache-Control': 'public, s-maxage=1800, stale-while-revalidate=86400',
+        },
+      }
+    );
 
   } catch (error) {
     return handleApiError(error);
