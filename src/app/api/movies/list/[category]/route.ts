@@ -10,6 +10,8 @@ type MovieCategory = 'featured' | 'popular' | 'upcoming';
 
 const VALID_CATEGORIES: MovieCategory[] = ['featured', 'popular', 'upcoming'];
 
+const TMDB_REVALIDATE_SECONDS = 60 * 30;
+
 export async function GET(request: NextRequest, { params }: RouteParams) {
   try {
     validateEnvironment();
@@ -39,6 +41,7 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
       headers: {
         Authorization: `Bearer ${TMDB_ACCESS_TOKEN}`,
       },
+      next: { revalidate: TMDB_REVALIDATE_SECONDS },
     });
 
     if (!response.ok) {
@@ -51,7 +54,11 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
 
     const data: MovieApiResponse = await response.json();
 
-    return NextResponse.json(data);
+    return NextResponse.json(data, {
+      headers: {
+        'Cache-Control': 'public, s-maxage=1800, stale-while-revalidate=86400',
+      },
+    });
 
   } catch (error) {
     return handleApiError(error);
