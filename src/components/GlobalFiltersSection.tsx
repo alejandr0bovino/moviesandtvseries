@@ -47,6 +47,7 @@ export default function GlobalFiltersSection({
       }}
       className="w-65 block mx-auto md:block md:mx-auto xl:mx-0 mb-3 xl:mb-0 cm-select"
       isDisabled={isDisabled}
+      disableAnimation
       radius="full"
       popoverProps={{ shouldBlockScroll: false }}
       size="lg"
@@ -82,7 +83,7 @@ export default function GlobalFiltersSection({
       />
 
       {titleQuery && !isFilterAnimating ? (
-        <Tooltip content="Sorting is disabled when searching by title" color="foreground">
+        <Tooltip disableAnimation content="Sorting is disabled when searching by title" color="foreground">
           <div>
             {renderSortSelect(true)}
           </div>

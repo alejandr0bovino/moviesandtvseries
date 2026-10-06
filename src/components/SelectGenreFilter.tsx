@@ -38,7 +38,9 @@ export function SelectGenreFilter({
     <Autocomplete
       // key={`genre-${selectedGenre}`}
       aria-label="Genre"
+      disableAnimation
       selectedKey={selectedGenre}
+      popoverProps={{ shouldBlockScroll: false }}
       classNames={{
         base: className || "max-w-[240px] block mx-auto md:block md:mx-auto xl:mx-0 mb-3 xl:mb-0 cm-autocomplete",
       }}

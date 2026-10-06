@@ -38,7 +38,9 @@ export function SelectYearFilter({ selectedYear, onYearChange, className }: Sele
     <Autocomplete
       // key={`year-${selectedYear}`}
       aria-label="Select Year Filter"
+      disableAnimation
       selectedKey={selectedYear}
+      popoverProps={{ shouldBlockScroll: false }}
       classNames={{
         base: className || 'max-w-[220px] block mx-auto md:block md:mx-auto xl:mx-0 mb-3 xl:mb-0 cm-autocomplete',
       }}

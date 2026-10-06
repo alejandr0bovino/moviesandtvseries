@@ -188,7 +188,7 @@ export default function GlobalCard({
       <div className='flex flex-col'>
         <SignedIn>
           {bookmarkedItems.has(mediaItem.id) ? (
-            <Tooltip content="Remove bookmark" color="foreground" placement="right">
+            <Tooltip disableAnimation content="Remove bookmark" color="foreground" placement="right">
               <button
                 aria-label="Remove bookmark"
                 onClick={() => onRemoveBookmark(mediaItem.id)}
@@ -198,7 +198,7 @@ export default function GlobalCard({
               </button>
             </Tooltip>
           ) : (
-            <Tooltip content="Bookmark" color="foreground" placement="right">
+            <Tooltip disableAnimation content="Bookmark" color="foreground" placement="right">
               <button
                 aria-label="Bookmark"
                 onClick={() => onBookmarkSuccess(mediaItem.id, getItemTitleForActions(mediaItem))}
@@ -210,7 +210,7 @@ export default function GlobalCard({
           )}
 
           {watchlistedItems.has(mediaItem.id) ? (
-            <Tooltip content="Remove from Watchlist" color="foreground" placement="right">
+            <Tooltip disableAnimation content="Remove from Watchlist" color="foreground" placement="right">
               <button
                 aria-label="Remove from Watchlist"
                 onClick={() => onRemoveFromWatchlist(mediaItem.id)}
@@ -220,7 +220,7 @@ export default function GlobalCard({
               </button>
             </Tooltip>
           ) : (
-            <Tooltip content="Add to Watchlist" color="foreground" placement="right">
+            <Tooltip disableAnimation content="Add to Watchlist" color="foreground" placement="right">
               <button
                 aria-label="Add to Watchlist"
                 onClick={() => onAddToWatchlist(mediaItem.id, getItemTitleForActions(mediaItem))}
@@ -232,7 +232,7 @@ export default function GlobalCard({
           )}
 
           {likedItems.has(mediaItem.id) ? (
-            <Tooltip content="Remove like" color="foreground" placement="right">
+            <Tooltip disableAnimation content="Remove like" color="foreground" placement="right">
               <button
                 aria-label="Remove like"
                 onClick={() => onUnlikeItem(mediaItem.id)}
@@ -242,7 +242,7 @@ export default function GlobalCard({
               </button>
             </Tooltip>
           ) : (
-            <Tooltip content="Like" color="foreground" placement="right">
+            <Tooltip disableAnimation content="Like" color="foreground" placement="right">
               <button
                 aria-label="Like"
                 onClick={() => onLikeItem(mediaItem.id, getItemTitleForActions(mediaItem))}
@@ -256,21 +256,21 @@ export default function GlobalCard({
 
         <SignedOut>
           <div className='flex flex-col'>
-            <Tooltip content="Bookmark" color="foreground" placement="right">
+            <Tooltip disableAnimation content="Bookmark" color="foreground" placement="right">
               <button aria-label="Bookmark" onClick={onBookmarkModalOpen}
                 className='cursor-pointer w-10 h-10 flex items-center justify-center'>
                 <BookmarkPlus className='text-gray-200' width={25} height={25} />
               </button>
             </Tooltip>
 
-            <Tooltip content="Add to Watchlist" color="foreground" placement="right">
+            <Tooltip disableAnimation content="Add to Watchlist" color="foreground" placement="right">
               <button aria-label="Add to watchlist" onClick={onWatchlistModalOpen}
                 className='cursor-pointer w-10 h-9 flex items-center justify-center'>
                 <Eye className='text-gray-200' width={23} height={23} />
               </button>
             </Tooltip>
 
-            <Tooltip content="Like" color="foreground" placement="right">
+            <Tooltip disableAnimation content="Like" color="foreground" placement="right">
               <button aria-label="Like" onClick={onLikeModalOpen}
                 className='cursor-pointer w-10 h-9 flex items-center justify-center'>
                 <Heart className='text-gray-200' width={23} height={23} />

@@ -80,7 +80,7 @@ export function GlobalPoster({
       <div className="absolute top-0 left-0 flex flex-col backdrop-blur-sm rounded-tl-[18px] rounded-br-[18px]">
         <SignedIn>
           {isBookmarked ? (
-            <Tooltip content="Remove bookmark" color="foreground" placement="right">
+            <Tooltip disableAnimation content="Remove bookmark" color="foreground" placement="right">
               <button
                 aria-label="Remove bookmark"
                 onClick={() => onRemoveBookmark(itemId)}
@@ -90,7 +90,7 @@ export function GlobalPoster({
               </button>
             </Tooltip>
           ) : (
-            <Tooltip content="Bookmark" color="foreground" placement="right">
+            <Tooltip disableAnimation content="Bookmark" color="foreground" placement="right">
               <button
                 aria-label="Bookmark"
                 onClick={() => onBookmark(itemId, itemName)}
@@ -102,7 +102,7 @@ export function GlobalPoster({
           )}
 
           {isWatchlisted ? (
-            <Tooltip content="Remove from Watchlist" color="foreground" placement="right">
+            <Tooltip disableAnimation content="Remove from Watchlist" color="foreground" placement="right">
               <button
                 aria-label="Remove from Watchlist"
                 onClick={() => onRemoveFromWatchlist(itemId)}
@@ -112,7 +112,7 @@ export function GlobalPoster({
               </button>
             </Tooltip>
           ) : (
-            <Tooltip content="Add to Watchlist" color="foreground" placement="right">
+            <Tooltip disableAnimation content="Add to Watchlist" color="foreground" placement="right">
               <button
                 aria-label="Add to Watchlist"
                 onClick={() => onAddToWatchlist(itemId, itemName)}
@@ -127,7 +127,7 @@ export function GlobalPoster({
           {itemId && (
             <>
               {isLiked ? (
-                <Tooltip content="Remove like" color="foreground" placement="right">
+                <Tooltip disableAnimation content="Remove like" color="foreground" placement="right">
                   <button
                     aria-label="Remove like"
                     onClick={() => onUnlike(itemId)}
@@ -137,7 +137,7 @@ export function GlobalPoster({
                   </button>
                 </Tooltip>
               ) : (
-                <Tooltip content="Like" color="foreground" placement="right">
+                <Tooltip disableAnimation content="Like" color="foreground" placement="right">
                   <button
                     aria-label="Like"
                     onClick={() => onLike(itemId, itemName)}
@@ -152,7 +152,7 @@ export function GlobalPoster({
         </SignedIn>
 
         <SignedOut>
-          <Tooltip content="Bookmark" color="foreground" placement="right">
+          <Tooltip disableAnimation content="Bookmark" color="foreground" placement="right">
             <button
               aria-label="Bookmark"
               onClick={onOpenBookmarkModal}
@@ -162,7 +162,7 @@ export function GlobalPoster({
             </button>
           </Tooltip>
 
-          <Tooltip content="Add to Watchlist" color="foreground" placement="right">
+          <Tooltip disableAnimation content="Add to Watchlist" color="foreground" placement="right">
             <button
               aria-label="Add to watchlist"
               onClick={onOpenWatchlistModal}
@@ -172,7 +172,7 @@ export function GlobalPoster({
             </button>
           </Tooltip>
 
-          <Tooltip content="Like" color="foreground" placement="right">
+          <Tooltip disableAnimation content="Like" color="foreground" placement="right">
             <button
               aria-label="Like"
               onClick={onOpenLikeModal}
