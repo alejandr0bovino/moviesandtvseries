@@ -67,7 +67,7 @@ export function GlobalDetails({ media, mediaType }: GlobalDetailsProps) {
             );
 
             return isTruncated ? (
-              <Tooltip disableAnimation content={media.homepage.replace(/^https?:\/\//, '')} color="foreground">
+              <Tooltip content={media.homepage.replace(/^https?:\/\//, '')} color="foreground">
                 {link}
               </Tooltip>
             ) : link;
