@@ -1,56 +1,62 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
+import { useEffect } from "react";
 import MovieIcon from "@/icons/movie";
-import { PowerGlitch } from 'powerglitch';
+import { PowerGlitch } from "powerglitch";
 
 export default function About() {
   useEffect(() => {
-    PowerGlitch.glitch('#cm-logo-223',
-      {
-        "timing": {
-          "duration": 4000
-        },
-        "glitchTimeSpan": {
-          "start": 0,
-          "end": 0
-        },
-        "shake": {
-          "amplitudeX": 0,
-          "amplitudeY": 0
-        },
-        "slice": {
-          "minHeight": 0,
-          "maxHeight": 0,
-        },
-        "pulse": {
-          "scale": 1.8
-        }
-      }
-    );
+    PowerGlitch.glitch("#cm-logo-223", {
+      timing: {
+        duration: 4000,
+      },
+      glitchTimeSpan: {
+        start: 0,
+        end: 0,
+      },
+      shake: {
+        amplitudeX: 0,
+        amplitudeY: 0,
+      },
+      slice: {
+        minHeight: 0,
+        maxHeight: 0,
+      },
+      pulse: {
+        scale: 1.8,
+      },
+    });
   }, []);
-
 
   return (
     <>
       <hr className="mt-3 mb-7 hr-text" data-content="ABOUT" />
 
       <div className="w-full max-w-screen-xl mx-auto mb-20 flex">
-
         <div className="flex-3 md:flex-2 hidden sm:block">
-
-          <MovieIcon fill="#CCCCCC" width="200px" height="200px" id="cm-logo-223" />
-
+          <MovieIcon
+            fill="#CCCCCC"
+            width="200px"
+            height="200px"
+            id="cm-logo-223"
+          />
         </div>
 
         <div className="flex-8">
-          <h1 className='mb-2 text-4xl font-semibold leading-[1.41176]'>About us</h1>
+          <h1 className="mb-2 text-4xl font-semibold leading-[1.41176]">
+            About us
+          </h1>
 
           <div className="text-xl leading-9 mb-9">
+            <p>
+              Welcome to Movies & TV Series, your go-to place for exploring the
+              world of movies and TV series.
+            </p>
 
-            <p>Welcome to Movies & TV Series, your go-to place for exploring the world of movies and TV series.</p>
-
-            <p>We built this website for fans who want more than just trailers and ratings. Here, you can:</p>
+            <p>
+              We built this website for fans who want more than just trailers
+              and ratings. Here, you can:
+            </p>
 
             <p>Discover trending movies and shows across genres.</p>
 
@@ -60,8 +66,12 @@ export default function About() {
 
             <p>Save favorites and build your personal watchlist.</p>
 
-            <p>Our goal is simple: make it easier (and more fun) to decide what to watch next. Whether you’re a casual viewer or a hardcore cinephile, CineScope helps you spend less time searching and more time watching.</p>
-
+            <p>
+              Our goal is simple: make it easier (and more fun) to decide what
+              to watch next. Whether you’re a casual viewer or a hardcore
+              cinephile, CineScope helps you spend less time searching and more
+              time watching.
+            </p>
           </div>
 
           <h2 className="text-2xl font-semibold mb-2">Tech stack</h2>
@@ -71,30 +81,35 @@ export default function About() {
             <li>**Database**: PostgreSQL with Prisma ORM</li>
             <li>**Authentication**: Clerk</li>
             <li>**Styling**: Tailwind CSS with HeroUI components</li>
+            <li>**Animated components**: Aceternity UI</li>
             <li>**Language**: TypeScript</li>
             <li>**Frontend Cloud**: Vercel</li>
           </ul>
 
           <h2 className="text-2xl font-semibold mb-2">Credits & Disclaimer</h2>
 
-          <p className='text-xl leading-9 mb-4'>
-            This product uses the TMDB API but is not endorsed or certified by TMDB.
+          <p className="text-xl leading-9 mb-4">
+            This product uses the TMDB API but is not endorsed or certified by
+            TMDB.
           </p>
 
-          <p className='text-xl leading-9 mb-4'> This website is a personal, non-commercial project created to showcase web development work. All movie and TV show data is provided by TMDB
-            via their API. Trailers are embedded from YouTube
+          <p className="text-xl leading-9 mb-4">
+            {" "}
+            This website is a personal, non-commercial project created to
+            showcase web development work. All movie and TV show data is
+            provided by TMDB via their API. Trailers are embedded from YouTube
           </p>
 
-          <p className='text-xl leading-9'> No movies or TV series are hosted or streamed on this site. TMDB logos and attributions are included in accordance with TMDB's guidelines .
-            . No movies or TV series are hosted or streamed on this site. TMDB logos and attributions are included in accordance with TMDB's guidelines .
+          <p className="text-xl leading-9">
+            {" "}
+            No movies or TV series are hosted or streamed on this site. TMDB
+            logos and attributions are included in accordance with TMDB's
+            guidelines . . No movies or TV series are hosted or streamed on this
+            site. TMDB logos and attributions are included in accordance with
+            TMDB's guidelines .
           </p>
         </div>
       </div>
     </>
   );
 }
-
-
-
-
-
