@@ -18,14 +18,17 @@ const generateYears = () => {
 const years = generateYears();
 
 export function SelectYearFilter({ selectedYear, onYearChange, className }: SelectYearFilterProps) {
-  const handleSelectionChange = (val: any) => {
+  const handleSelectionChange = (val: React.Key | null) => {
     const year = val?.toString() || '';
 
     // Always call onYearChange, even if it's the same value
     // This ensures the parent component can handle the state properly
     onYearChange(year);
 
-    // Blur the autocomplete when an option is selected or cleared
+    // HeroUI opens the list when the clear button is pressed. Blur only after
+    // a real selection so clearing keeps the dropdown open.
+    if (val == null) return;
+
     setTimeout(() => {
       const activeElement = document.activeElement as HTMLElement;
       if (activeElement) {
@@ -38,7 +41,7 @@ export function SelectYearFilter({ selectedYear, onYearChange, className }: Sele
     <Autocomplete
       // key={`year-${selectedYear}`}
       aria-label="Select Year Filter"
-      selectedKey={selectedYear}
+      selectedKey={selectedYear || null}
       classNames={{
         base: className || 'max-w-[220px] block mx-auto md:block md:mx-auto xl:mx-0 mb-3 xl:mb-0 cm-autocomplete',
       }}

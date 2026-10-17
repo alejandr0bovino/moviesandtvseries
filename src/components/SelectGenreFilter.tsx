@@ -1,3 +1,4 @@
+import type { Key } from "react";
 import { Autocomplete, AutocompleteItem } from "@heroui/react";
 
 interface GenreOption {
@@ -18,14 +19,17 @@ export function SelectGenreFilter({
   genreOptions,
   className,
 }: SelectGenreFilterProps) {
-  const handleSelectionChange = (val: any) => {
+  const handleSelectionChange = (val: Key | null) => {
     const selected = val?.toString() || "";
 
     // Always call onGenreChange, even if it's the same value
     // This ensures the parent component can handle the state properly
     onGenreChange(selected);
 
-    // Blur the autocomplete when an option is selected or cleared
+    // HeroUI opens the list when the clear button is pressed. Blur only after
+    // a real selection so clearing keeps the dropdown open.
+    if (val == null) return;
+
     setTimeout(() => {
       const activeElement = document.activeElement as HTMLElement;
       if (activeElement) {
@@ -38,7 +42,7 @@ export function SelectGenreFilter({
     <Autocomplete
       // key={`genre-${selectedGenre}`}
       aria-label="Genre"
-      selectedKey={selectedGenre}
+      selectedKey={selectedGenre || null}
       classNames={{
         base: className || "max-w-[240px] block mx-auto md:block md:mx-auto xl:mx-0 mb-3 xl:mb-0 cm-autocomplete",
       }}

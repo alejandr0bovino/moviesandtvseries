@@ -144,125 +144,46 @@ import { usePathname } from "next/navigation";
 export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
   const pathname = usePathname();
   const [hovered, setHovered] = useState<number | null>(null);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [isInitialized, setIsInitialized] = useState(false);
-
-  // Ensure component is properly initialized
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsInitialized(true);
-    }, 100);
-    return () => clearTimeout(timer);
-  }, []);
-
-  // Reset hover state when pathname changes to prevent invisible items
-  useEffect(() => {
-    setHovered(null);
-    setIsAnimating(false);
-  }, [pathname]);
-
-  const handleMouseEnter = (idx: number) => {
-    if (!isInitialized) return;
-
-    if (hovered !== idx) {
-      setIsAnimating(true);
-      setHovered(idx);
-      // Reset animation state after a short delay
-      setTimeout(() => setIsAnimating(false), 150);
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (!isInitialized) return;
-
-    setIsAnimating(true);
-    setHovered(null);
-    setTimeout(() => setIsAnimating(false), 150);
-  };
 
   return (
     <motion.div
-      onMouseLeave={handleMouseLeave}
+      onMouseLeave={() => setHovered(null)}
       className={cn(
         "hidden lg:flex flex-row items-center justify-center space-x-2 text-md font-medium",
         className,
       )}
     >
       {items.map((item, idx) => {
-        const isActive = pathname === item.link || (item.link === '/movies' && pathname.startsWith('/movies/')) || (item.link === '/tv-series' && pathname.startsWith('/tv-series/')) || (item.link === '/people' && pathname.startsWith('/people/'));
+        const isActive =
+          pathname === item.link ||
+          (item.link === "/movies" && pathname.startsWith("/movies/")) ||
+          (item.link === "/tv-series" && pathname.startsWith("/tv-series/")) ||
+          (item.link === "/people" && pathname.startsWith("/people/"));
         const isHovered = hovered === idx;
 
         return (
           <Link
-            key={`link-${idx}-${pathname}`}
+            key={item.link}
             href={item.link}
-            onMouseEnter={() => handleMouseEnter(idx)}
+            onMouseEnter={() => setHovered(idx)}
             {...(onItemClick && { onClick: onItemClick })}
             className={cn(
               "relative px-4 py-2 rounded-full transition-colors duration-200",
               isActive
                 ? "bg-[#000000] text-[#ffffff]"
-                : "text-[#525252]",
-              isHovered && !isActive && "text-[#171717]"
+                : isHovered
+                  ? "text-[#171717]"
+                  : "text-[#525252]",
             )}
           >
-            {isHovered && !isActive && isInitialized && (
+            {isHovered && !isActive && (
               <motion.div
-                key={`hover-${idx}-${pathname}`}
                 layoutId="hovered"
-                initial={{
-                  opacity: 0,
-                  scale: 1
-                }}
-                animate={{
-                  opacity: 1,
-                  scale: 1,
-                  transition: {
-                    type: "spring",
-                    stiffness: 400,
-                    damping: 25,
-                    mass: 0.8,
-                    duration: 0.2
-                  }
-                }}
-                exit={{
-                  opacity: 0,
-                  scale: 0.8,
-                  transition: {
-                    duration: 0.1,
-                    ease: "easeOut"
-                  }
-                }}
-                className="absolute inset-0 rounded-full border-1 border-[#000000]"
-                style={{
-                  zIndex: 1,
-                  pointerEvents: "none"
-                }}
-                layout
-                layoutDependency={pathname}
+                className="absolute inset-0 h-full w-full rounded-full border border-black"
+                style={{ pointerEvents: "none" }}
               />
             )}
-
-            <motion.span
-              className="relative z-10"
-              animate={{
-                color: isActive
-                  ? "rgb(255 255 255)"
-                  : isHovered
-                    ? "rgb(17 24 39)"
-                    : "rgb(82 82 82)",
-                transition: {
-                  duration: 0.2,
-                  ease: "easeInOut"
-                }
-              }}
-              style={{
-                position: "relative",
-                zIndex: 2
-              }}
-            >
-              {item.name}
-            </motion.span>
+            <span className="relative z-10">{item.name}</span>
           </Link>
         );
       })}
